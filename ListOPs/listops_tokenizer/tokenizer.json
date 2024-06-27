@@ -1,0 +1,95 @@
+{
+  "version": "1.0",
+  "truncation": null,
+  "padding": null,
+  "added_tokens": [
+    {
+      "id": 0,
+      "content": "MIN",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 1,
+      "content": "MAX",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 2,
+      "content": "MED",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 3,
+      "content": "SUM",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    },
+    {
+      "id": 4,
+      "content": "[PAD]",
+      "single_word": false,
+      "lstrip": false,
+      "rstrip": false,
+      "normalized": false,
+      "special": true
+    }
+  ],
+  "normalizer": null,
+  "pre_tokenizer": {
+    "type": "ByteLevel",
+    "add_prefix_space": false,
+    "trim_offsets": true,
+    "use_regex": true
+  },
+  "post_processor": null,
+  "decoder": {
+    "type": "ByteLevel",
+    "add_prefix_space": true,
+    "trim_offsets": true,
+    "use_regex": true
+  },
+  "model": {
+    "type": "BPE",
+    "dropout": null,
+    "unk_token": null,
+    "continuing_subword_prefix": null,
+    "end_of_word_suffix": null,
+    "fuse_unk": false,
+    "byte_fallback": false,
+    "vocab": {
+      "MIN": 0,
+      "MAX": 1,
+      "MED": 2,
+      "SUM": 3,
+      "[PAD]": 4,
+      "0": 5,
+      "1": 6,
+      "2": 7,
+      "3": 8,
+      "4": 9,
+      "5": 10,
+      "6": 11,
+      "7": 12,
+      "8": 13,
+      "9": 14,
+      "[": 15,
+      "]": 16
+    },
+    "merges": []
+  }
+}

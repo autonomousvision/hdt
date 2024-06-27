@@ -1,0 +1,48 @@
+{
+  "added_tokens_decoder": {
+    "0": {
+      "content": "MIN",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "1": {
+      "content": "MAX",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "2": {
+      "content": "MED",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "3": {
+      "content": "SUM",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "4": {
+      "content": "[PAD]",
+      "lstrip": false,
+      "normalized": false,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    }
+  },
+  "clean_up_tokenization_spaces": true,
+  "model_max_length": 512,
+  "pad_token": "[PAD]",
+  "tokenizer_class": "PreTrainedTokenizerFast"
+}
