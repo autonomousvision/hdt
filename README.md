@@ -49,11 +49,13 @@ wikipedia = load_dataset('howey/wiki_en')
 In our experiments, we extend the [SciRepEval](https://arxiv.org/pdf/2211.13308) with public accessible arxiv full-text data, leading to a subset called [FullTextSciRepEval](https://huggingface.co/datasets/howey/super_scirep) including full-text scientific papers and labels from SciRepEval. FullTextSciRepEval is used to benchmark long document representation in our paper.  
 
 ## 🚀 Training
-The pre-training for HDT uses [pretrain.py](./pretrain.py). Note that both training of encoder-only model and encoder-decoder model shares the same training script, with different arguments setting. For instance, training a HDT encoder-only model (HDT-E) on Masked Language Modeling (MLM) task, you should run
+The pre-training for HDT uses [pretrain.py](./pretrain.py). Note that both training of encoder-only model and encoder-decoder model shares the same training script, with different arguments setting. For instance, training a HDT encoder-only model (HDT-E) on Masked Language Modeling (MLM) task, please run
 ```shell
 python pretrain.py --encoder_only --tok_name google-bert/bert-base-uncased
 ```
-Here we directly use the BERT tokenizer for simplicity. We pre-train our models in an academic budget following [CRAMMING](https://arxiv.org/abs/2212.14034). As default, the models are trained on 1 GPU for 24 hours. 
+Here we directly use the BERT tokenizer for simplicity. 
+
+Following [CRAMMING](https://arxiv.org/abs/2212.14034), we pre-train our models in an academic budget to evaluate the efficiency of our method. As default, the model is trained on 1 GPU for 24 hours. 
 
 In addition, to pre-train an encoder-decoder model for generation tasks with multiple gpus for longer time budget (e.g., 48 hours), run   
 ```shell
