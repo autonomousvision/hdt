@@ -90,7 +90,7 @@ python run_experiment.py 0.25 5 20 90000 12 128 1 512 300 120 0.0003 fixed blue 
 ## 📚Citation
 If you use or extend our work, please consider citing our paper. Thank you for your support! 🥰
 ```
-@misc{He2022COLM,
+@inproceedings{He2024COLM,
   author = {He, Haoyu and Flicke, Markus and Buchman, Jan and Gurevych, Iryna and Geiger, Andreas},
   title = {HDT: Hierarchical Document Transformer},
   publisher = {Conference on Language Modeling},
