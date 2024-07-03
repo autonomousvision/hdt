@@ -11,7 +11,7 @@ pip install -r requirements.txt
 ```
 
 ## 📊 Datasets
-For pre-training, we collect structured documents from [HUPD](https://huggingface.co/datasets/HUPD/hupd), [unarXive](https://github.com/IllDepence/unarXive), and WikiPedia. We further preprocess the documents according to the 3-level hierarchy we define in the paper, so that each document is composed of a list of sections, which is a list of sentences. 
+For pre-training, we collect structured documents from [HUPD](https://huggingface.co/datasets/HUPD/hupd), [unarXive](https://github.com/IllDepence/unarXive), and Wikipedia. We further preprocess the documents according to the 3-level hierarchy we define in the paper, so that each document is composed of a list of sections, which is a list of sentences. 
 ### Pre-training Data
 
 In our implementation, a document is structured as a list of sections, where each section is a list of sentences. This hierarchical format allows the HDT model to efficiently process and exploit the structural information present in the document.
