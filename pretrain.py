@@ -21,7 +21,7 @@ def parse_args():
     parser.add_argument("--lr", default=1e-3, help="Learning Rate")
     parser.add_argument("--batch_size", default=4)
     parser.add_argument("--budget", default=24, type=float, help="Number of hours the pre-training continues")
-    parser.add_argument("--encoder_only", default=True, action="store_false", help="Encoder-only model or encoder-decoder model")
+    parser.add_argument("--encoder_only", default=False, action="store_true", help="Encoder-only model or encoder-decoder model")
     parser.add_argument("--num_gpus", default=1, type=int)
     parser.add_argument("--accumulate_grad_batches", default=16, type=int, help="Number of batches for gradient accumulation")
     args = parser.parse_args()
