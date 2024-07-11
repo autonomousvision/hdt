@@ -1,3 +1,10 @@
+def _set_args(learning_rate, B, T):
+    global lr, batch_size, budget
+    lr = learning_rate
+    batch_size = B
+    budget = T
+
+
 num_labels = 1
 lr = 1e-3
 optimizer_name = "adamw"

@@ -79,6 +79,7 @@ def random_spans_noise_mask(length, mean_noise_span_length, noise_density):
 
     return is_noise[:orig_length]
 
+
 def compute_input_and_target_lengths(
         inputs_length, noise_density, mean_noise_span_length
     ):

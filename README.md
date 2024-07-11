@@ -9,6 +9,19 @@ The required Python packages for running this repo are listed in [requirements.t
 ```shell
 pip install -r requirements.txt
 ```
+## 🧩 ListOps
+To verify our hierarchical attention, we start experiments on [ListOPs](https://arxiv.org/abs/1804.06028) before training on language tasks using the scripts in [ListOPs](./ListOPs). 
+The entry point is `run_experiment.py`. You can provide model names and hyperparameters as command line arguments. 
+For example, to run the HDT vs BERT vs HAT vs Longformer experiment we used in the paper:  
+```shell
+cd ListOPs
+python run_experiment.py 0.25 5 20 90000 12 128 1 512 300 120 0.0003 fixed blue 512 HDT hdt_testrun
+python run_experiment.py 0.25 5 20 90000 12 128 1 512 300 120 0.0003 fixed blue 512 BERT bert_testrun
+python run_experiment.py 0.25 5 20 90000 12 128 1 512 300 120 0.0003 fixed blue 512 Longformer Longformer_testrun
+python run_experiment.py 0.25 5 20 90000 12 128 1 512 300 120 0.0003 fixed blue 512 HAT HAT_testrun
+```
+> [!NOTE]
+> Currently our customized attention kernel only supports three-level hierarchy, we don't use it for the ListOps tasks where the depths could be much larger, e.g., 20. We create hierarchical attention mask and directly apply the mask on the attention score matrix. A more flexible kernel will be released soon which supports arbitrary levels of hierarchy.
 
 ## 📊 Datasets
  
@@ -60,7 +73,7 @@ Following [CRAMMING](https://arxiv.org/abs/2212.14034), we pre-train our models 
 ### HDT-ED
 In addition, to pre-train an encoder-decoder model for generation tasks with multiple gpus for longer time budget (e.g., 48 hours), run   
 ```shell
-python pretrain.py --tok_name google-t5/t5-base --num_layers 6 --num_decoder_layers 6 --num_gpus 4 --budget 48 
+python pretrain.py --tok_name google-t5/t5-base --num_encoder_layers 6 --num_decoder_layers 6 --num_gpus 4 --budget 48 
 ```
 > [!NOTE]  
 > - We uses [UL2](https://arxiv.org/abs/2205.05131) as the pre-training objective for encoder-decoder model and MLM for encoder-only model, following the default configuration from the original papers.
@@ -73,19 +86,6 @@ python pretrain.py --tok_name google-t5/t5-base --num_layers 6 --num_decoder_lay
 | [`howey/HDT-E`](https://huggingface.co/howey/HDT-E)                                                   | 12             |           | 768            | 12              | 32,768 | 109M       |
 | [`howey/HDT-ED`](https://huggingface.co/howey/HDT-ED)                                               | 6              | 6              | 768       | 12              | 32,128 | 112M       |
 
-## 🧩 ListOps
-To verify our hierarchical attention, we start experiments on [ListOPs](https://arxiv.org/abs/1804.06028) before training on language tasks using the scripts in [ListOPs](./ListOPs). 
-The entry point is `run_experiment.py`. You can provide model names and hyperparameters as command line arguments. 
-For example, to run the HDT vs BERT vs HAT vs Longformer experiment we used in the paper:  
-```shell
-cd ListOPs
-python run_experiment.py 0.25 5 20 90000 12 128 1 512 300 120 0.0003 fixed blue 512 HDT hdt_testrun
-python run_experiment.py 0.25 5 20 90000 12 128 1 512 300 120 0.0003 fixed blue 512 BERT bert_testrun
-python run_experiment.py 0.25 5 20 90000 12 128 1 512 300 120 0.0003 fixed blue 512 Longformer Longformer_testrun
-python run_experiment.py 0.25 5 20 90000 12 128 1 512 300 120 0.0003 fixed blue 512 HAT HAT_testrun
-```
-> [!NOTE]
-> Currently our customized attention kernel only supports three-level hierarchy, we don't use it for the ListOps tasks where the depths could be much larger, e.g., 20. We create hierarchical attention mask and directly apply the mask on the attention score matrix. A more flexible kernel will be released soon which supports arbitrary levels of hierarchy.
 
 ## 📚Citation
 If you use or extend our work, please consider citing our paper. Thank you for your support! 🥰

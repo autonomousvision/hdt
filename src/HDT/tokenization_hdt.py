@@ -34,7 +34,6 @@ VOCAB_FILES_NAMES = {"vocab_file": "spiece.model"}
 class HDTTokenizer:
     """
     A tokenizer wrapper to perform the functions we need upon a basic tokenizer
-    structure:
     """
     def __init__(self, tokenizer, max_document_length):
         self.tokenizer = tokenizer
@@ -55,6 +54,10 @@ class HDTTokenizer:
         self.tokenizer.save_pretrained(save_directory)
 
     def tokenize_sparse_document(self, document, query=None, global_query=False):
+        # variable query is for prompt-like sentences which are not a part of the input document,
+        # e.g., question of a document QA task
+        # We set the query as the first section of the document and 'global_query' controls whether the query keeps
+        # global attention on all the tokens
         # TODO: implement sparse tokenization without structure information
         max_length = self.max_document_length
         model_max_length = self.tokenizer.model_max_length

@@ -1,7 +1,7 @@
 # IDEA: Make a single lightning class that will work for all models that are defined by huggingface's "...forSequenceClassification" models
 
 import torch
-from lightning import LightningModule
+from pytorch_lightning import LightningModule
 from transformers import BertConfig
 import transformers
 import Config

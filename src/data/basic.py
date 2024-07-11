@@ -114,7 +114,6 @@ class BasicDataModule(LightningDataModule):
         return load_tokenizer(
             CONFIG.cfg_data.tok_name,
             seq_length=CONFIG.cfg_data.model_max_length,
-            vocab_size=CONFIG.cfg_data.vocab_size,
         )
 
     def _log_tokenization(self, train_dataset):

@@ -520,27 +520,6 @@ def _bwd_kernel(Q, K, V, hash_ids0, hash_ids1, hash_ids2,
                                       )
     else:
         raise NotImplemented("sequence parallel is not implemented yet")
-        # start_n = tl.program_id(1)
-        # _bwd_kernel_one_col_block(Q, K, V, hash_ids0, hash_ids1, hash_ids2,
-        #                           keep_ids0, keep_ids1, keep_ids2, anchor_pos, sm_scale,
-        #                           qk_scale, Out, DO,  #
-        #                           DQ, DK, DV,  #
-        #                           L,  #
-        #                           D,  #
-        #                           Q_block_ptr, K_block_ptr, V_block_ptr,  #
-        #                           DO_block_ptr, DQ_block_ptr, DK_block_ptr, DV_block_ptr,  #
-        #                           stride_dqa, stride_qz, stride_qh, stride_qm, stride_qk,  #
-        #                           stride_kz, stride_kh, stride_kn, stride_kk,  #
-        #                           stride_vz, stride_vh, stride_vn, stride_vk,  #
-        #                           stride_idz,
-        #                           Z, H, N_CTX,  #
-        #                           off_h, off_z, off_hz, start_n, num_block_n,  #
-        #                           BLOCK_M=BLOCK_M, BLOCK_DMODEL=BLOCK_DMODEL,  #
-        #                           BLOCK_N=BLOCK_N,  #
-        #                           SEQUENCE_PARALLEL=SEQUENCE_PARALLEL,  #
-        #                           CAUSAL=CAUSAL,  #
-        #                           MMA_V3=MMA_V3  #
-        #                           )
 
 
 class _attention(torch.autograd.Function):

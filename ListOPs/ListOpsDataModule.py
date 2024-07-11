@@ -1,5 +1,5 @@
 import logging
-from lightning import LightningDataModule
+from pytorch_lightning import LightningDataModule
 from torch.utils.data import DataLoader
 from datasets import load_from_disk
 import datasets

@@ -7,7 +7,6 @@ import configs as CONFIG
 
 
 class BasicModel(LightningModule):
-
     def __init__(self):
         super(BasicModel, self).__init__()
 

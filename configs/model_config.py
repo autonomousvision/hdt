@@ -1,4 +1,11 @@
-vocab_size = 32768
+def _set_args(encoder_flag, max_input, max_output, L_E, L_D):
+    global encoder_only, max_encoder_position_embeddings, max_decoder_position_embeddings, num_layers, num_decoder_layers
+    encoder_only = encoder_flag
+    max_encoder_position_embeddings = max_input
+    max_decoder_position_embeddings = max_output
+    num_layers = L_E
+    num_decoder_layers = L_D
+
 d_model = 768
 d_kv = 64
 d_ff = 3072

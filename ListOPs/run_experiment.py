@@ -2,10 +2,9 @@ from huggingface_model import huggingface_model
 from ExperimentRunnerArgs import ExperimentRunnerArgs
 from model_save_results import save_results
 from ListOpsDataModule import ListOPsDataModule
-from lightning import Trainer
+from pytorch_lightning import Trainer
 import Config as Config
-from lightning.pytorch.callbacks.early_stopping import EarlyStopping
-from lightning.pytorch.callbacks import ModelCheckpoint
+from pytorch_lightning.callbacks import ModelCheckpoint
 
 
 # from src.SyntheticDataCreation.ListOps.create import create_dataset

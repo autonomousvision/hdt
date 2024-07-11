@@ -110,7 +110,7 @@ class HDTFT(BasicModel):
 
 
 class HDTPretrain(BudgetModel):
-    def __init__(self):
+    def __init__(self, vocab_size):
         super().__init__()
         if CONFIG.cfg_model.encoder_only:
             model_class = HDTEncoderForPreTraining
