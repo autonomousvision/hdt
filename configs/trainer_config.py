@@ -1,7 +1,7 @@
 def _set_args(num_gpus, accu_grad):
     global devices, strategy, accumulate_grad_batches
     if num_gpus > 1:
-        accelerator = "ddp"
+        strategy = "ddp"
     devices = num_gpus
     accumulate_grad_batches = accu_grad
 
