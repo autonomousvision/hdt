@@ -3,8 +3,8 @@ def _set_args(run_name):
     name = run_name
 
 offline = False
-id = "null"  # pass correct id to resume experiment!
-anonymous = "null"  # enable anonymous logging
+id = None  # pass correct id to resume experiment!
+anonymous = None  # enable anonymous logging
 project = "pretrain_HDT"
 log_model: False  # upload lightning ckpts
 prefix = ""  # a string to put at the beginning of metric keys

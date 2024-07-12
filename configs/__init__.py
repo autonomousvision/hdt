@@ -18,8 +18,9 @@ def set_args(args):
     cfg_logger._set_args(f"HDT_{args.max_input_length}_{args.max_output_length}_encoder_{'' if args.encoder_only else 'decoder'}")
 
 
+
 hierarchical = True # Always True before we have the code to pre-train a non-hierarchical model such as Longformer
-save_dir = "logs/test"
-cache_dir = ""
+save_dir = "lightning_logs/test"
+cache_dir = "data"
 checkpoint_dir = save_dir
 pretrained_checkpoint = False # either path to a directory containing pre-trained weights, or False

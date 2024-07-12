@@ -93,7 +93,7 @@ def main(args):
     model_dataset_name = f'{args.model}_{args.n_layers}_{args.intermediate_size}_{args.epochs}_{dataset_name}'
     # Create the trainer
     import os
-    trainer = Trainer(max_epochs=Config.EPOCHS,
+    trainer = Trainer(max_epochs=Config.EPOCHS, accelerator='gpu', devices=1,
                       callbacks=[# EarlyStopping(monitor='validation_accuracy', min_delta=0.00, patience=10, verbose=False, mode="max"),
                                  ModelCheckpoint(monitor='validation_accuracy', dirpath=os.path.join('runs', log_dir), filename=model_dataset_name, save_weights_only=True)],)
 

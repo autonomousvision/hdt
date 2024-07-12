@@ -1,9 +1,12 @@
+import torch
+import random
 import argparse
+import numpy as np
 from src.data import UL2DataModule, HierarchicalMLMDataModule
 from src.lightning_modules import HDTPretrain
 from pytorch_lightning import Callback, LightningDataModule, LightningModule, Trainer, seed_everything
 from pytorch_lightning.callbacks import LearningRateMonitor
-from pytorch_lightning.loggers import WandbLogger
+from pytorch_lightning.loggers.wandb import WandbLogger
 from src.utils import module_to_dict
 import configs as CONFIG
 
@@ -16,7 +19,7 @@ def parse_args():
     parser.add_argument("--cache_dir", default="cache", help="Path to save downloaded data/model cacje")
     parser.add_argument("--tok_name", default="google-t5/t5-base", help="Initialize with a trained tokenizer")
     parser.add_argument("--max_input_length", default=8192, type=int, help="Maximum input context length")
-    parser.add_argument("--max_output_length", default=256, type=int, help="Maximum output context length (only valid for encoder-decoder model)")
+    parser.add_argument("--max_output_length", default=512, type=int, help="Maximum output context length (only valid for encoder-decoder model)")
     parser.add_argument("--mlm_probability", default=0.15, type=float)
     parser.add_argument("--lr", default=1e-3, help="Learning Rate")
     parser.add_argument("--batch_size", default=4)
@@ -28,8 +31,8 @@ def parse_args():
     CONFIG.set_args(args)
     return args
 
-
 def main():
+    seed_everything(CONFIG.cfg_exps.seed, workers=True)
     args = parse_args()
     if CONFIG.model_config.encoder_only:
         dataloader = HierarchicalMLMDataModule()
@@ -45,5 +48,4 @@ def main():
 
 
 if __name__ == "__main__":
-    seed_everything(CONFIG.cfg_exps.seed, workers=True)
     main()
