@@ -22,7 +22,7 @@ python run_experiment.py 0.25 5 20 90000 12 128 1 512 300 120 0.0003 fixed blue 
 ```
 > [!NOTE]
 > Currently our customized attention kernel only supports three-level hierarchy, we don't use it for the ListOps tasks where the depths could be much larger, e.g., 20. We create hierarchical attention mask and directly apply the mask on the attention score matrix. A more flexible kernel will be released soon which supports arbitrary levels of hierarchy.
-
+> We use cython to speed up the computation of our sparse attention mask. The cython code needs to be compiled on your system before your run the code. `python setup.py build_ext --inplace`
 ## 📊 Datasets
  
 ### Pre-training Data
