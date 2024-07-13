@@ -1,5 +1,7 @@
 # HDT: Hierarchical Document Transformer
-This repository contains code for our COLM'24 paper "HDT: Hierarchical Document Transformer" [[PDF]]() 
+This repository contains code for our COLM'24 paper "HDT: Hierarchical Document Transformer" 
+
+[[PDF]](https://arxiv.org/pdf/2407.08330) [[Project]](https://cli212.github.io/HDT/) 
 ##   📖 Overview
 We present HDT, a novel sparse Transformer architecture tailored for structured hierarchical documents. HDT exploits document structure by introducing auxiliary anchor tokens and redesigning the attention mechanism into a sparse multi-level hierarchy. By developing a novel sparse attention kernel that considers the hierarchical structure of documents, HDT achieves computational efficiency as well as higher sample efficiency for pre-training and better performance on downstream tasks.  
 
